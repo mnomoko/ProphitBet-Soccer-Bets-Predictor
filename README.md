@@ -160,7 +160,13 @@ In order to request a prediction for a match, You need to select the home/away t
 An alternative way to predict multiple matches at once is to use the "**Fixture Parsing**" option. You may now automatically parse the fixtures using your browser. Once the fixture window pops-up, select your **browser and the fixture date** and the application will automatically download the page & parse the upcoming fixtures of the specified data. This is a new feature, so please report any bugs in the issues page.
 ![fixture parsing & upcoming match prediction](https://github.com/kochlisGit/ProphitBet-Soccer-Bets-Predictor/blob/main/screenshots/fixtures.png)
 
-# Requirements
+# Requirements & Installation
+
+Below are the steps of installing this application to your machine. First, download this code and extract it into a directory. Then, follow the steps below:
+
+1. Download & Install python. During the installation, you should choose  **add to "Path"**. It is recommended to download **python 3.9.** or higher version.
+2. After you download & install python, you can Download the above libraries using pip module (e.g. `pip install numpy==VERSION`). The version can be found in *requirements.txt* file. These modules can be installed via the cmd (in windows) or terminal (in linux). **IMPORTANT**: To download the correct versions, just add "==" after pip install to specify version, as described on requirements.txt file. For example, to install `tensorlfow 2.9.1`, you can use: `pip install tensorflow==2.9.1`.
+3. On windows, you can double click the main.py file. Alternatively (Both Windows & Linux), You can open the cmd on the project directory and run: `python main.py`. 
 
 **A `requirements.txt` file has been added to the project directory. The table below presents the required libraries, however, you should check the `requirements.txt` file for the required library versions.**
 
@@ -178,16 +184,13 @@ An alternative way to predict multiple matches at once is to use the "**Fixture 
 | Tensorflow-Addons  | https://www.tensorflow.org/addons | `pip install tensorflow_addons` |
 | TKinter  | https://docs.python.org/3/library/tkinter.html | `pip install tk ` |
 | Optuna | https://optuna.org/ | `pip install optuna` |
-| Fuzzy-Wuzzy | https://pypi.org/project/py-stringmatching (https://pypi.org/project/fuzzywuzzy/) | `pip install fuzzywuzzy` |
-| tabulate | https://pypi.org/project/tabulate/ | `pip install tabulate` |
+| Fuzzy-Wuzzy | https://pypi.org/project/py-stringmatching | `pip install fuzzywuzzy` |
+| Python-Levenshtein | https://pypi.org/project/python-Levenshtein/ | `pip install python-Levenshtein` |
+| Tabulate | https://pypi.org/project/tabulate/ | `pip install tabulate` |
+| Selenium | https://pypi.org/project/selenium/ | `pip install selenium` |
+| LXML | https://pypi.org/project/lxml/ | `pip install lxml` |
 
 To run `pip` commands, open CMD (windows) using Window Key + R or by typing cmd on the search. In linux, You can use the linux terminal. You can also install multiple libraries at once (e.g. `pip install numpy==1.22.4 pandas==1.4.3 ...`
-
-# Instructions (How to Run)
-
-1. Download & Install python. During the installation, you should choose  **add to "Path"**. It is recommended to download **python 3.9.** or higher version.
-2. After you download & install python, you can Download the above libraries using pip module (e.g. `pip install numpy==VERSION`). The version can be found in *requirements.txt* file. These modules can be installed via the cmd (in windows) or terminal (in linux). **IMPORTANT**: To download the correct versions, just add "==" after pip install to specify version, as described on requirements.txt file. For example, to install `tensorlfow 2.9.1`, you can use: `pip install tensorflow==2.9.1`.
-3. On windows, you can double click the main.py file. Alternatively (Both Windows & Linux), You can open the cmd on the project directory and run: `python main.py`. 
 
 # Common Errors
 1. `Cannot install tensorflow.` Sometimes, it requires visual studio to be installed. Download the community edition which is free here:  [https://pypi.org/project/py-stringmatching](https://visualstudio.microsoft.com/downloads/)
@@ -195,6 +198,7 @@ To run `pip` commands, open CMD (windows) using Window Key + R or by typing cmd 
 3. `File main.py was not found`. This is because when you open command line (cmd) tool on windows, or terminal on linux, the default directory that cmd is looking at is the home directory, not prophitbet directory. You need to navigate to prophitbet directory, where the main.py file exists. To do that, you can use the `cd` command. e.g. if prophitbit is downloaded on "Downloads" folder, then type `cd Downloads/ProphitBet-Soccer-Bets-Predictor` and then type `python main.py`
 4. `python command not found` on linux. This is because python command is `python3` on linux systems
 5. `Parsing date is wrong` when trying to parse fixtures from the html file. The html file has many fixtures. Each fixture has a date. You need to specify the correct date of the fixture you are requesting, so the parser identifies the fixtures from the given date and grab the matches. You need to specify the date before importing the fixture file into program.
+6. `<<library>> module was not found` This means that a library has been installed, but it is not included in the documentation or requirements.txt file. Try to install it via `pip` command or open an issue so that i can update the documentation.
 
 # Supported Platforms
 1. Windows
@@ -209,6 +213,19 @@ In case there is an error with the application, open a Github Issue so that I ca
 1. **Neural Network's Training Dialog Height is too large and as a result, "Train" button cannot be displayed.**
 
 Solution: You can press "ENTER" button to start training. The same applies to Random Forest Training Dialog, as well as the tuning dialogs.
+
+# Release (2024/10/30)
+* Fixed a bug where percentiles were not properly saved.
+
+# Release (2024/09/18)
+* Updated statistics: The average odds (1,X,2) are not replaced with "close" average odds, which are the average odds at the time that a match starts.
+* Updated documentation: installation instructions and common errors.
+* Simplified filters and fixed a bug in percentiles.
+* Deleted deprecated directory "network".
+* Fixed a bug where no normalization was applied after loading a pre-trained model.
+* Fixed a bug where several leagues could not be loaded. This is because football-data website changed the column names".
+* Fixed a bug where some of the odds would be missing.
+* Fixed a bug where Under/Over percentile filters were missing.
 
 # Release (2024/01/29)
 
